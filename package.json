@@ -1,0 +1,26 @@
+{
+  "name": "companymanager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "knexfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rahul4times/companyManager.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rahul4times/companyManager/issues"
+  },
+  "homepage": "https://github.com/rahul4times/companyManager#readme",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "knex": "^0.13.0",
+    "pg": "^7.3.0"
+  }
+}
