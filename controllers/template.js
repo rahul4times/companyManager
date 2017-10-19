@@ -128,6 +128,7 @@ module.exports = {
       });
   },
 
+// Getting individual member's profile
   oneMember: function(req, res) {
     knex('member')
     .where('id', req.params.id)
@@ -138,5 +139,42 @@ module.exports = {
     .catch((err) => {
       console.error(err)
     });
-  }
+  },
+
+  editoneMember: function(req, res) {
+    knex('member')
+      .update({
+        company_id: req.body.company_id,
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        email: req.body.email,
+        position: req.body.position
+      })
+      .where('id', req.params.id)
+      .then((result) => {
+        console.log(req.body);
+        res.redirect('/editmember/' + req.params.id);
+
+      })
+      .catch((err) => {
+        console.log("THIS ERROR");
+        console.error(err);
+        res.sendStatus(400);
+      });
+  },
+
+  // Delete member
+    deleteMember: function(req, res) {
+      knex('member')
+        .del()
+        .where('id', req.params.id)
+        .then((result) => {
+          console.log(result);
+          res.redirect('/');
+        })
+        .catch((err) => {
+          console.error(err);
+          res.sendStatus(400);
+        });
+    }
 }

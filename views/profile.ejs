@@ -37,27 +37,25 @@
   <br><br>
     <div class="container">
       <div class="row">
-        <div class="col s6">
+        <div class="col s12">
 
           <form action="/edit/<%= companyObject.id %>" method="post">
             <label for="name">Company Name:</label>
-            <input type="text" name="name" value="<%= companyObject.name %>">
+            <input id="cname" type="text" name="name" value="<%= companyObject.name %>">
             <br>
             <label for="description">Description:</label>
-            <input type="text" name="description" value="<%= companyObject.description %>">
+            <input id="cdes" type="text" name="description" value="<%= companyObject.description %>">
             <br>
             <label for="suite">Suite:</label>
-            <input type="text" name="suite" value="<%= companyObject.suite %>">
-        </div>
-        <div class="col s6">
-          <input type="submit" value="Edit">
-          <br>
-          <br>
-          <div class="deleteBtn">
-            <p onclick="return confirm('Are you sure you want to delete <%= companyObject.name %>')">
-              <a href="/delete/<%= companyObject.id %>">Delete</a></p>
-          </div>
-          </form>
+            <input id="csuite" type="text" name="suite" value="<%= companyObject.suite %>">
+            <br>
+            <input id="submitBtn" type="submit" value="Edit">
+            
+            <div class="deleteBtn">
+              <p onclick="return confirm('Are you sure you want to delete <%= companyObject.name %>')">
+                <a href="/delete/<%= companyObject.id %>">Delete</a></p>
+            </div>
+            </form>
         </div>
 
       </div>

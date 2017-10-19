@@ -9,9 +9,13 @@ app.use(bodyParser.json({ extended: true }));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
-// This is redirecting to paths 
+// This is redirecting to paths
 var routes_setter = require('./config/routes.js');
 routes_setter(app);
+
+
+
+
 
 // Server message on terminal window
 app.listen(port, function() {

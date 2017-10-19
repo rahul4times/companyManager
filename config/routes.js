@@ -11,4 +11,12 @@ module.exports = function(app){
   app.post('/edit/:id', template.edit); //Company Profile edit
   app.get('/delete/:id', template.deletecompany); //Profile page
   app.get('/editmember/:id', template.oneMember); //Member profile page
+  app.post('/editonemember/:id', template.editoneMember); //Member profile page
+  app.get('/deletemember/:id', template.deleteMember); //Delete member
+
+
+  app.use(function(req, res){
+
+    res.render('./error');
+  })
 }

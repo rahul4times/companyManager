@@ -37,39 +37,36 @@
   <br><br>
     <div class="container">
       <div class="row">
-        <form action="editmember/" method="post">
-          <div class="col s6">
+        <form action="/editonemember/<%= oneMemberObject.id %>" method="post">
+          <div class="col s12">
             <label for="company_id">Company Id:</label>
-            <input type="text" name="company_id"
-            value="<%= oneMemberObject.id %>" required>
+            <input id="cidofm" type="text" name="company_id"
+            value="<%= oneMemberObject.company_id %>" required>
             <br>
             <label for="first_name">First Name:</label>
-            <input type="text" name="first_name"
+            <input id="mfname" type="text" name="first_name"
             value="<%= oneMemberObject.first_name %>" required>
             <br>
             <label for="last_name">Last Name:</label>
-            <input type="text" name="last_name"
+            <input id="mlname" type="text" name="last_name"
             value="<%= oneMemberObject.last_name %>" required>
             <br>
             <label for="email">Email:</label>
-            <input type="email" name="email"
+            <input id="memail" type="email" name="email"
             value="<%= oneMemberObject.email %>" required>
             <br>
             <label for="position">Position:</label>
-            <input type="text" name="position"
+            <input id= "mposi" type="text" name="position"
             value="<%= oneMemberObject.position %>" required>
-          </div>
-          <div class="col s6">
-            <input type="submit" value="Edit">
-            <div class="deleteMember">
-              <p onclick="return confirm('Are you sure you want to delete
-              <%= oneMemberObject.first_name %> profile')">
-                <a href="/delete/<%= oneMemberObject.id %>">
-                  Delete Profile</a></p>
+            <br>
+            <input id="submitBtn" type="submit" value="Edit">
+            <br>
+            <div class="deleteBtn">
+              <p onclick="return confirm('Are you sure you want to delete')">
+                <a href="/deletemember/<%= oneMemberObject.id %>">
+                  Delete</a></p>
             </div>
           </div>
-
-
         </form>
       </div>
 
