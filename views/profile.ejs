@@ -37,13 +37,27 @@
   <br><br>
     <div class="container">
       <div class="row">
-        <div class="col s12">
-          <p><span class="lables">Name: </span>
-            <%= companyObject.name %></p>
-          <p><span class="lables">Description: </span>
-            <%= companyObject.description %></p>
-          <p><span class="lables">Suite: </span>
-            <%= companyObject.suite %></p>
+        <div class="col s6">
+
+          <form action="/edit/<%= companyObject.id %>" method="post">
+            <label for="name">Company Name:</label>
+            <input type="text" name="name" value="<%= companyObject.name %>">
+            <br>
+            <label for="description">Description:</label>
+            <input type="text" name="description" value="<%= companyObject.description %>">
+            <br>
+            <label for="suite">Suite:</label>
+            <input type="text" name="suite" value="<%= companyObject.suite %>">
+        </div>
+        <div class="col s6">
+          <input type="submit" value="Edit">
+          <br>
+          <br>
+          <div class="deleteBtn">
+            <p onclick="return confirm('Are you sure you want to delete <%= companyObject.name %>')">
+              <a href="/delete/<%= companyObject.id %>">Delete</a></p>
+          </div>
+          </form>
         </div>
 
       </div>
@@ -61,6 +75,7 @@
                 <td>NAME</td>
                 <td>EMAIL</td>
                 <td>POSITION</td>
+                <td>ACTION</td>
               </tr>
             </thead>
             <tbody>
@@ -73,6 +88,7 @@
                   </td>
                   <td><%= memberObject[j].email %></td>
                   <td><%= memberObject[j].position %></td>
+                  <td><a href="/editmember/<%= memberObject[j].id %>">Edit Profile</a></td>
                 </tr>
               <% } %>
             </tbody>

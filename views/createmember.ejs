@@ -38,15 +38,15 @@
     <br>
     <br>
     <form action="/createMember" method="post">
-      <input id="txtbox-id" type="text" name="company_id" placeholder="Enter Company ID">
+      <input id="txtbox-id" type="text" name="company_id" placeholder="Enter Company ID" required>
       <br>
-      <input id="fname" type="text" name="first_name" placeholder="Enter First Name">
+      <input id="fname" type="text" name="first_name" placeholder="Enter First Name" required>
       <br>
-      <input id="lname" type="text" name="last_name" placeholder="Enter Last Name">
+      <input id="lname" type="text" name="last_name" placeholder="Enter Last Name" required>
       <br>
-      <input id="email" type="text" name="email" placeholder="Enter Email">
+      <input id="email" type="email" name="email" placeholder="Enter Email" required>
       <br>
-      <input id="position" type="text" name="position" placeholder="Enter Position">
+      <input id="position" type="text" name="position" placeholder="Enter Position" required>
       <br>
       <input class="btn" type="submit" value="Create">
     </form>

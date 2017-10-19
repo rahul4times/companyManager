@@ -62,7 +62,7 @@ module.exports = {
         position: req.body.position
       }, "*")
       .then((result)=>{
-        console.log(result);
+
         res.redirect("/")
       })
       .catch((err) => {
@@ -90,5 +90,53 @@ module.exports = {
       console.error(err)
     });
 
+  },
+
+// Edit company
+  edit: function(req, res) {
+    knex('company')
+      .update({
+        name: req.body.name,
+        description: req.body.description,
+        suite: req.body.suite
+      })
+      .where('id', req.params.id)
+      .then((result) => {
+        console.log(req.body);
+        res.redirect('/profile/' + req.params.id);
+
+      })
+      .catch((err) => {
+        console.log("THIS ERROR");
+        console.error(err);
+        res.sendStatus(400);
+      });
+  },
+
+// Delete Company
+  deletecompany: function(req, res) {
+    knex('company')
+      .del()
+      .where('id', req.params.id)
+      .then((result) => {
+        console.log(result);
+        res.redirect('/');
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(400);
+      });
+  },
+
+  oneMember: function(req, res) {
+    knex('member')
+    .where('id', req.params.id)
+    .then((result) => {
+      console.log(result);
+      res.render('editmember', {oneMemberObject: result[0]})
+    })
+    .catch((err) => {
+      console.error(err)
+    });
   }
 }
